@@ -1,0 +1,47 @@
+
+<p>
+  <b>Name:</b>
+  <%= @story.name %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @story.text %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @story.story_status ? @story.story_status.name : ''%>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @story.user.login %>
+</p>
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
+
+<h1>Listing story_comments</h1>
+
+<table>
+  <tr>
+    <th>Comment</th>
+    <th>User</th>
+    <th></th>
+  </tr>
+
+<% @story_comments.each do |story_comment| %>
+  <tr>
+    <td><%= story_comment.comment %></td>
+    <td><%= story_comment.user ? story_comment.user.login : '' %></td>
+    <td><%=  if current_user.id == story_comment.user_id
+  link_to 'Destroy', story_comment, :confirm => 'Are you sure?', :method => :delete 
+             end%>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= render 'story_comments/form' %>

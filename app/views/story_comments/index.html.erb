@@ -1,0 +1,29 @@
+<h1>Listing story_comments</h1>
+
+<table>
+  <tr>
+    <th>Comment</th>
+    <th>Text</th>
+    <th>Story</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @story_comments.each do |story_comment| %>
+  <tr>
+    <td><%= story_comment.comment %></td>
+    <td><%= story_comment.text %></td>
+    <td><%= story_comment.story %></td>
+    <td><%= story_comment.user %></td>
+    <td><%= link_to 'Show', story_comment %></td>
+    <td><%= link_to 'Edit', edit_story_comment_path(story_comment) %></td>
+    <td><%= link_to 'Destroy', story_comment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Story comment', new_story_comment_path %>

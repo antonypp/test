@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>simple task manager</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+</head>
+<body>
+<% if logged_in? %>
+  <p><strong>You are logged in as <%=h current_user.login %></strong> <%= link_to 'Logout', logout_path %></p>
+<% else %>
+  <p>
+    <%= link_to 'Login', login_path %> or
+    <%= link_to 'Sign Up', 'register' %>
+  </p>
+<% end %>
+<%= yield %>
+
+</body>
+</html>

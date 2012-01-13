@@ -1,0 +1,28 @@
+<h1>Listing stories</h1>
+
+<table class="zebra-striped">
+  <tr>
+    <th>Name</th>
+    <th>Text</th>
+    <th>State</th>
+    <th>User</th>
+    <th></th>
+
+  </tr>
+
+<% @stories.each do |story| %>
+  <tr>
+    <td><%= story.name %></td>
+    <td><%= story.text %></td>
+    <td><%= story.story_status ? story.story_status.name : '' %></td>
+    <td><%= story.user.login %></td>
+    <td><%= link_to 'Show', story %> 
+    <%= link_to 'Edit', edit_story_path(story) %> 
+    <%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Story', new_story_path %>
