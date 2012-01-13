@@ -18,6 +18,7 @@ class StoryCommentsControllerTest < ActionController::TestCase
 
   test "should create story_comment" do
     assert_difference('StoryComment.count') do
+      @story_comment.story = stories(:one)
       post :create, :story_comment => @story_comment.attributes
     end
 
@@ -29,15 +30,6 @@ class StoryCommentsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, :id => @story_comment.to_param
-    assert_response :success
-  end
-
-  test "should update story_comment" do
-    put :update, :id => @story_comment.to_param, :story_comment => @story_comment.attributes
-    assert_redirected_to story_comment_path(assigns(:story_comment))
-  end
 
   test "should destroy story_comment" do
     assert_difference('StoryComment.count', -1) do

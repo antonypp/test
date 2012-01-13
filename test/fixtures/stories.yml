@@ -3,11 +3,10 @@
 one:
   name: MyString
   text: MyText
-  state: 
-  user: 
-
+  user_id: 1
+  story_status_id: 1
 two:
   name: MyString
   text: MyText
-  state: 
-  user: 
+  user_id: 1
+  story_status_id: 2

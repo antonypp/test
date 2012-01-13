@@ -1,14 +1,15 @@
 <h1>Listing stories</h1>
-<%= link_to 'New Story', new_story_path %>
+<%= link_to 'New Story', new_story_path, :class=>"btn success" %>
 <br/>   
 <%= form_tag '/' do %>
 <p><%= label_tag 'user' %>
 <%= select_tag 'user', options_from_collection_for_select(@user, "id", "login")<< '<option value="all">All</option>'.html_safe %></p>
 <p><%= label_tag 'status' %>
 <%= select_tag 'status', options_from_collection_for_select(@story_statuses, "id", "name")<< '<option value="all">All</option>'.html_safe %></p>
-<p><%= submit_tag 'Search' %></p>
+<p><%= submit_tag 'Search', :class=>"btn info"%></p>
 <% end -%>
-<table class="zebra-striped">
+<table class="bordered-table zebra-striped">
+  <thead>
   <tr>
     <th>Name</th>
     <th>Text</th>
@@ -18,7 +19,8 @@
     <th></th>
 
   </tr>
-
+   </thead>
+   <tbody>
 <% @stories.each do |story| %>
   <tr>
     <td><%= story.name %></td>
@@ -31,6 +33,7 @@
     <%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
+  </tbody>
 </table>
 
 <br />

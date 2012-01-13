@@ -32,11 +32,7 @@ class StoryCommentsController < ApplicationController
     end
   end
 
-  # GET /story_comments/1/edit
-  def edit
-    @story_comment = StoryComment.find(params[:id])
-  end
-
+  
   # POST /story_comments
   # POST /story_comments.json
   def create
@@ -55,21 +51,6 @@ class StoryCommentsController < ApplicationController
     end
   end
 
-  # PUT /story_comments/1
-  # PUT /story_comments/1.json
-  def update
-    @story_comment = StoryComment.find(params[:id])
-
-    respond_to do |format|
-      if @story_comment.update_attributes(params[:story_comment])
-        format.html { redirect_to @story_comment, :notice => 'Story comment was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @story_comment.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /story_comments/1
   # DELETE /story_comments/1.json
