@@ -11,9 +11,9 @@
 <% if logged_in? %>
   <p style="float: right"><strong>You are logged in as <%=h current_user.login %></strong> <%= link_to 'Logout', logout_path %></p>
 <% else %>
-  <p>
+  <p style="float: right">
     <%= link_to 'Login', login_path %> or
-    <%= link_to 'Sign Up', 'register' %>
+    <%= link_to 'Sign Up', '/register' %>
   </p>
 <% end %>
 <%= yield %>
