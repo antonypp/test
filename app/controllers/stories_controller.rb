@@ -2,8 +2,21 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
-
+    if params[:user] && params[:status]
+      if params[:user]=='all' && params[:status]== 'all'
+        @stories = Story.all  
+      elsif params[:user]=='all'
+         @stories = Story.find_all_by_story_status_id(params[:status])
+      elsif  params[:status]== 'all'
+         @stories = Story.find_all_by_user_id(params[:user])
+      else
+         @stories = Story.find_all_by_user_id_and_story_status_id(params[:status])
+      end
+    else
+    @stories = Story.all  
+    end
+    @user = User.all
+    @story_statuses = StoryStatus.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @stories }
