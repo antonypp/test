@@ -13,3 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/config/*.yml
+/config/initializers
+/nbproject
