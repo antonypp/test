@@ -12,17 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :text %><br />
+    <%= f.label :text %>
     <%= f.text_area :text %>
-  </div>
-  <div class="field">
-    <%= f.label :story_status_id %><br />
-    <%= f.select :story_status_id , options_from_collection_for_select(@story_statuses, "id", "name")  %>
-  </div>
+  </div><br />
+
 
   <div class="actions">
     <%= f.submit %>

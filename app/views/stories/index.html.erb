@@ -1,11 +1,12 @@
 <h1>Listing stories</h1>
-
+<%= link_to 'New Story', new_story_path %>
 <table class="zebra-striped">
   <tr>
     <th>Name</th>
     <th>Text</th>
     <th>State</th>
     <th>User</th>
+    <th>Comment</th>
     <th></th>
 
   </tr>
@@ -16,6 +17,7 @@
     <td><%= story.text %></td>
     <td><%= story.story_status ? story.story_status.name : '' %></td>
     <td><%= story.user.login %></td>
+    <td><%= story.story_comments.count() %></td>
     <td><%= link_to 'Show', story %> 
     <%= link_to 'Edit', edit_story_path(story) %> 
     <%= link_to 'Destroy', story, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -25,4 +27,3 @@
 
 <br />
 
-<%= link_to 'New Story', new_story_path %>

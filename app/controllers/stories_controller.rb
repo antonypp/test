@@ -46,7 +46,7 @@ class StoriesController < ApplicationController
     @story = Story.new(params[:story])
     @story.user_id = self.current_user.id
     #@StoryStatus = StoryStatus.find(1)
-   # @story.story_status_id = @StoryStatus.id
+    @story.story_status_id = 1
     respond_to do |format|
       if @story.save
         format.html { redirect_to @story, :notice => 'Story was successfully created.' }
